@@ -10,15 +10,15 @@ import datetime
 
 from tensorflow.keras.models import load_model
 #load pickle file for prediction :trained model,scaler,onehot
-model=load_model('/content/churn_model.h5')
+model=load_model('churn_model.h5')
 #load scalar and encoder
-with open('/content/scaler.pkl','rb') as file:
+with open('scaler.pkl','rb') as file:
   scaler=pickle.load(file)
 
-with open('/content/label_encoder_gender.pkl','rb') as file:
+with open('label_encoder_gender.pkl','rb') as file:
   label_encoder_gender=pickle.load(file)
 
-with open('/content/one_hot_encoder_geo.pkl','rb') as file:
+with open('one_hot_encoder_geo.pkl','rb') as file:
   one_hot_encoder_geo=pickle.load(file)
   
 ##streamlit app
@@ -59,6 +59,7 @@ if prediction_proba>0.5 :
   st.write("The customer is likely to churn.")
 else:
   st.write("The customer is likely to stay.")
+
 
 
 
